@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>List of Assignees</title>
+  <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+ <div th:each="uzenet : ${facebookmessage}">
+   <b><p th:text="${uzenet.getSender_name() + ' (' + #dates.format(uzenet.getTimestamp_ms(), 'yyyy-MM-dd hh:mm') + ')'  + ' : '}"></b>
+   <p th:text="${uzenet.getContent()}"></p>
+   <div th:each="photo : ${uzenet.getPhotos()}">
+   <img th:if="${photo}" th:src="${photo.getUri()}" th:width="300">
+
+
+ </div>
+
+
+
+ </div>
+
+</body>
+</html>
